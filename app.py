@@ -10,6 +10,10 @@ load_dotenv()
 token1 = os.environ['token']
 server1 = os.environ['server']
 
+@bot.command(name="backfire")
+async def backfireFunction(ctx):
+  global backfire
+  backfire = True
 
 bot = commands.Bot(command_prefix="!")
 @bot.command(name='sleep')
