@@ -44,7 +44,10 @@ async def spam1(ctx,emoji,num):
     response = emoji
     await ctx.send(response)
 
-
+@bot.command(name="close")
+async def shutdown(ctx):
+  await ctx.send('bot is closed')
+  await ctx.bot.close()
 
 
 bot.run(token1)
