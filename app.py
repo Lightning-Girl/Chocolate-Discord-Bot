@@ -17,6 +17,10 @@ async def work_pls(ctx, name, num):
   r_list = ['Got to bed!', 'Sleep is really good for your health!', 'Dreams are sometimes fun', 'You need sleep!', 'Please go to sleep!', 'Go to sleep or no choco wafflez for you', 'Sleep or I will get a board', '']
   emoji_list = ['💤','😴', '🛌']
   num2 = int(num)
+  if num2 >= 40:
+    num2 = 40
+    r4 = "i dont feel like spamming that messgae for that long"
+    await ctx.send(r4)
   for i in range(num2):
     r1 = random.choice(r_list)
     emoji = random.choice(emoji_list)
