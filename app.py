@@ -32,6 +32,13 @@ async def read1(ctx):
   books = ['PJO', 'HOO', 'A Night Divided', 'Words On Fire', 'Giver', 'A Swiftly Tilting Planet']
   response = 'You should read ' + random.choice(books)
   await ctx.send(response)
+  
+@bot.command(name="spam")
+async def spam1(ctx,emoji,num):
+  num2 = int(num)
+  for i in range(num2):
+    response = emoji
+    await ctx.send(response)
 
 
 
