@@ -9,6 +9,17 @@ load_dotenv()
 
 token1 = os.environ['token']
 server1 = os.environ['server']
+pin = os.environ['close_pin']
+
+@bot.command(name="close")
+async def shutdown(ctx, num='0'):
+  num2 = int(num)
+  a = int(pin)
+  if num2 == a:
+    await ctx.send('request granted')
+    await ctx.bot.close()
+  elif num2 != a:
+    await ctx.send('request denied')
 
 @bot.command(name="backfire")
 async def backfireFunction(ctx):
@@ -48,10 +59,6 @@ async def spam1(ctx,emoji,num):
     response = emoji
     await ctx.send(response)
 
-@bot.command(name="close")
-async def shutdown(ctx):
-  await ctx.send('bot is closed')
-  await ctx.bot.close()
 
 
 bot.run(token1)
