@@ -3,7 +3,7 @@ import random
 import discord
 from dotenv import load_dotenv
 from discord.ext import commands
-
+import requests
 
 load_dotenv()
 
@@ -58,6 +58,30 @@ async def spam1(ctx,emoji,num):
   for i in range(num2):
     response = emoji
     await ctx.send(response)
+@bot.command(name='ISS')
+async def find_ISS(ctx, item):
+  iss = requests.get('https://api.wheretheiss.at/v1/satellites/25544').json()
+  response = ""
+  if item == "index":
+    for i in iss:
+      response += i
+      response += ", "
+  else:
+    lat = iss[f'{item}']
+    response = f"The {item} of the ISS is:{lat}"
+  await ctx.send(response)
+
+@bot.command(name="API")
+async def func3(ctx, api_link, key):
+  api = requests.get(api_link).json()
+  response = ''
+  if key == 'index':
+    for i in api:
+      response += i
+      response += ", "
+  else: 
+    response = api[f'{key}']
+  await ctx.send(response)
 
 
 
