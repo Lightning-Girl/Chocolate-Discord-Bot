@@ -83,6 +83,24 @@ async def func3(ctx, api_link, key):
     response = api[f'{key}']
   await ctx.send(response)
 
-
+@bot.command(name="ship")
+async def func5(ctx, name1, name2):
+  extra_functions.ship(name1,name2)
+  extra_functions.ship(name2,name1)
+  names2 = tuple(extra_functions.names)
+   
+  response = """That sounds like a great ship! :heart:, I LOVE it already!!
+  """
+  num3 = 0
+  for i in names2:
+    num3 += 1
+    if num3 > 500:
+      await ctx.send(response)
+      num3 = 0
+      response = ""
+    else:
+      response += i + ", "
+  
+  await ctx.send(response)
 
 bot.run(token1)
